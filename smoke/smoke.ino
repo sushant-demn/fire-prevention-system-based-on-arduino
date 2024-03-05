@@ -74,22 +74,30 @@ void loop()
    Serial.print("\n");
    Serial.print("\
 ");
-        lcd.setCursor(0, 0);
-        lcd.print("LPG:");
-lcd.print(MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG)  );
-//lcd.print( "ppm" );
-lcd.print("     ");  
-  lcd.setCursor(9, 0);
-lcd.print("CO:");  
-lcd.print(MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO) );
-//lcd.print( "ppm"  );
-lcd.print("       "); 
- lcd.setCursor(0, 1);  
-lcd.print("SMOKE:");  
-lcd.print(MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE) );
-//lcd.print(  "ppm" );
-lcd.print("         ");
-   delay(200);
+//         lcd.setCursor(0, 0);
+//         lcd.print("LPG:");
+// lcd.print(MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG)  );
+// //lcd.print( "ppm" );
+// lcd.print("     ");  
+//   lcd.setCursor(9, 0);
+// lcd.print("CO:");  
+// lcd.print(MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO) );
+// //lcd.print( "ppm"  );
+// lcd.print("       "); 
+//  lcd.setCursor(0, 1);  
+// lcd.print("SMOKE:");  
+// lcd.print(MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE) );
+// //lcd.print(  "ppm" );
+// lcd.print("         ");
+//    delay(200);
+if ((MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_LPG) or MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_CO) or MQGetGasPercentage(MQRead(MQ_PIN)/Ro,GAS_SMOKE))<=1)
+{
+     digitalWrite(LED_BUILTIN, HIGH); // turn the BUZZER on (HIGH is the voltage level)
+    delay(200);                      // wait for a second
+    digitalWrite(LED_BUILTIN, LOW);  // turn the BUZZER off by making the voltage LOW
+    delay(200); 
+}
+
 }
  
 /****************  MQResistanceCalculation **************************************
