@@ -1,5 +1,5 @@
 
-#define         MQ_PIN                       (0)     //define which  analog input channel you are going to use
+#define         MQ_PIN                       (4)     //define which  analog input channel you are going to use
 #define         RL_VALUE                     (5)     //define the load resistance on the board, in kilo ohms
 #define         RO_CLEAN_AIR_FACTOR          (9.83)  //RO_CLEAR_AIR_FACTOR=(Sensor resistance in clean air)/RO,
                                                      //which is derived from the  chart in datasheet
@@ -37,7 +37,7 @@ float           Ro           =  10;                 //Ro is initialized to 10 ki
   
 void setup()
 { pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(9600);                               //UART  setup, baudrate = 9600bps
+  Serial.begin(115200);                               //UART  setup, baudrate = 9600bps
   Serial.print("Calibrating...\
 ");                
   Ro = MQCalibration(MQ_PIN);                       //Calibrating the sensor. Please  make sure the sensor is in clean air 
