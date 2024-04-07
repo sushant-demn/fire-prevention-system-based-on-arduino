@@ -1,6 +1,6 @@
-#define BLYNK_TEMPLATE_ID "TMPL3_DUbj0Wq"
+#define BLYNK_TEMPLATE_ID "TEMP_ID"
 #define BLYNK_TEMPLATE_NAME "Fire safety"
-#define BLYNK_AUTH_TOKEN "9DyJ1y4fcaFn1DhQN0CJUpVW_V_vQ3UC"
+#define BLYNK_AUTH_TOKEN "AUTH_TK"
 #define BLYNK_PRINT Serial
 // #define BLYNK_PRINT Serial
 #include <ESP8266WiFi.h>
@@ -8,8 +8,8 @@
 #include <SPI.h>
 // #include <BlynkEdgent.h>
 
-char ssid[] = "Airtel_Sus";
-char pass[] = "sus@0011";
+char ssid[] = "SSID";
+char pass[] = "PASS";
 BLYNK_WRITE(V2)
 {
   int pinValue = param.asInt(); // assigning incoming value from pin V1 to a variable
